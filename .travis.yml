@@ -1,5 +1,5 @@
 os: windows
 language: c  # "language: csharp" is not yet supported in Travis CI Windows
 install: choco install mono
-before_script: cat /C/ProgramData/chocolatey/logs/chocolatey.log || true
+before_script: grep mono /C/ProgramData/chocolatey/logs/chocolatey.log || true
 script: mono --version
