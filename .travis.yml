@@ -4,7 +4,8 @@ language: c  # "language: csharp" is not yet supported in Travis CI Windows
 before_install: java -version || true
 install: choco install jre8 || true
 before_script:
-  - grep .log /c/ProgramData/chocolatey/logs/chocolatey.log || true
+  - cat /c/jre8_msi_install.log
+  - grep \.log /c/ProgramData/chocolatey/logs/chocolatey.log || true
   - grep jre8 /c/ProgramData/chocolatey/logs/chocolatey.log || true
   #- grep mono /c/ProgramData/chocolatey/logs/chocolatey.log || true
   #- grep mono.exe /c/ProgramData/chocolatey/logs/chocolatey.log || true
