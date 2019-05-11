@@ -2,7 +2,7 @@ os: windows
 language: shell
 env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 before_install:
-  - choco install python3
+  - choco install python  # works exactly the same as python3
   - python -m pip install --upgrade pip
 script:
   - where py || true       # C:\Windows\py.exe
