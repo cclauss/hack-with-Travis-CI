@@ -2,22 +2,16 @@ os: windows
 language: shell
 env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 before_install:
-  - choco install python
+  - choco install python3
   - python -m pip install --upgrade pip
 script:
-  - where py || true
-  - whereis py || true
-  - which py || true
-  - where python || true
-  - whereis python || true
-  - which python || true
-  - where python3 || true
-  - whereis python3 || true
-  - which python3 || true
-  - where pip || true
-  - whereis pip || true
-  - which pip || true
-  - where pip3 || true
-  - whereis pip3 || true
-  - which pip3 || true
-  
+  - where py || true       # C:\Windows\py.exe
+  - which py || true       # /c/Windows/py
+  - where python || true   # C:\Python37\python.exe and C:\ProgramData\chocolatey\bin\python.exe
+  - which python || true   # /c/Python37/python
+  - where python3 || true  # None!!!
+  - which python3 || true  # None!!!
+  - where pip || true      # C:\Python37\Scripts\pip.exe
+  - which pip || true      # /c/Python37/Scripts/pip
+  - where pip3 || true     # C:\Python37\Scripts\pip3.exe
+  - which pip3 || true     # /c/Python37/Scripts/pip3
