@@ -6,7 +6,9 @@ language: shell
 before_install:
   - choco install python
   - py --version || true
-  - py -c "import sys ; print(sys.executable)"
+  - py -c "import pathlib, sys ; print(pathlib.Path(sys.executable).as_posix())"
+  
+  
   - python --version || true
   - grep Python /c/ProgramData/chocolatey/logs/chocolatey.log || true
   - grep Python /c/ProgramData/chocolatey/logs/chocolatey.log | /c/Windows/py make_path_sh.py > temp.sh
