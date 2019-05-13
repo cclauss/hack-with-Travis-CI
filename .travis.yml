@@ -2,7 +2,12 @@ os: windows
 language: shell
 # env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 before_install:
-  - choco install python |& tee | /c/Windows/py make_path_sh.py > temp.sh
+  - choco install python #  |& tee
+  - C:\Windows\py.exe --version || true
+  - /c/Windows/py --version || true
+  - 
+  - /c/Windows/py make_path_sh.py > temp.sh
+  - /c/Windows/py make_path_sh.py > temp.sh
   - cat temp.sh
   - source temp.sh
   - python -m pip install --upgrade pip
