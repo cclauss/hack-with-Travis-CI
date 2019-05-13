@@ -5,6 +5,8 @@ before_install:
   - choco install python  # works exactly the same as python3
   - python -m pip install --upgrade pip
 script:
+  - where powershell || true
+  - which powershell || true
   - where py || true       # C:\Windows\py.exe
   - which py || true       # /c/Windows/py
   - where python || true   # C:\Python37\python.exe and C:\ProgramData\chocolatey\bin\python.exe
