@@ -3,9 +3,14 @@ language: shell
 # env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 before_install:
   - choco install python
-  - /c/Windows/py --version || true
-  - /c/Windows/py make_path_sh.py > temp.sh
+  - py --version || true
+  - python --version || true
+  - grep Python /c/ProgramData/chocolatey/logs/chocolatey.log || true
+  - grep Python /c/ProgramData/chocolatey/logs/chocolatey.log | /c/Windows/py make_path_sh.py > temp.sh
+  # - /c/Windows/py --version || true
+  # - /c/Windows/py make_path_sh.py > temp.sh
   - cat temp.sh
+  - echo $PATH
   - source temp.sh
   - echo $PATH
   - which python
