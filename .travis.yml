@@ -4,8 +4,10 @@ os: windows
 language: shell
 # env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 before_install:
-  - powershell 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
-  - powershell hack.ps1 a b c d e f g 1
+  #- powershell 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
+  - powershell -ExecutionPolicy RemoteSigned -File hack.ps1 a b c d e f g 1 || true
+  - echo "or..."
+  - powershell -ExecutionPolicy RemoteSigned -Command hack.ps1 a b c d e f g 1  || true
   - choco install python
   - py --version || true
   - py -c "import pathlib, sys ; print(pathlib.Path(sys.executable).as_posix())"
