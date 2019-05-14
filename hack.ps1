@@ -1,4 +1,4 @@
-foreach ($arg in args)
+foreach ($arg in $args)
 {
     Write-Output $arg
 }
