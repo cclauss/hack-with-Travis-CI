@@ -1,47 +1,19 @@
-# #!/c/Windows/System32/WindowsPowerShell/v1.0/powershell
-
-os: windows
-language: shell
-# env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-before_install:
-  #- powershell 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
-  - powershell -ExecutionPolicy RemoteSigned -File hack.ps1 a b c d e f g 1 || travis_terminate 1;
-  - echo "or..."
-  - powershell -ExecutionPolicy RemoteSigned -Command hack.ps1 a b c d e f g 1 || travis_terminate 1;
-  - choco install python
-  - py --version || true
-  - py -c "import pathlib, sys ; print(pathlib.Path(sys.executable).as_posix())"
-  
-  
-  - python --version || true
-  - grep Python /c/ProgramData/chocolatey/logs/chocolatey.log || true
-  - grep Python /c/ProgramData/chocolatey/logs/chocolatey.log | /c/Windows/py make_path_sh.py > temp.sh
-  # - /c/Windows/py --version || true
-  # - /c/Windows/py make_path_sh.py > temp.sh
-  - cat temp.sh
-  - echo $PATH
-  - source temp.sh
-  - echo $PATH
-  - which python
-  - where python
-  - python --version
-  - python -m pip install --upgrade pip
-  - py --version
-  - py --help
-script:
-  - where powershell || true
-  - which powershell || true
-  - where py || true         # C:\Windows\py.exe
-  - which py || true         # /c/Windows/py
-  - where python || true     # C:\Python37\python.exe and C:\ProgramData\chocolatey\bin\python.exe
-  - which python || true     # /c/Python37/python
-  - where python3 || true    # None!!!
-  - which python3 || true    # None!!!
-  - where python37 || true  # None!!!
-  - which python37 || true  # None!!!
-  - where python3.7 || true  # None!!!
-  - which python3.7 || true  # None!!!
-  - where pip || true        # C:\Python37\Scripts\pip.exe
-  - which pip || true        # /c/Python37/Scripts/pip
-  - where pip3 || true       # C:\Python37\Scripts\pip3.exe
-  - which pip3 || true       # /c/Python37/Scripts/pip3
+language: python            # this works for Linux but is an error on macOS or Windows
+matrix:
+  include:
+    - name: "Python 3.7.1 on Xenial Linux"
+      python: 3.7           # this works for Linux but is ignored on macOS or Windows
+      dist: xenial          # required for Python >= 3.7
+    - name: "Python 3.7.2 on macOS"
+      os: osx
+      osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
+      language: shell       # 'language: python' is an error on Travis CI macOS
+    - name: "Python 3.7.3 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install: choco install python
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
+# 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
+# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
+script: python3 my_app.py || python my_app.py
