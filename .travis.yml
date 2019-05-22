@@ -7,8 +7,9 @@ script:
   - which -a python3 || true
   - which -a python3.6 || true
   #- pyenv global 3.6.3
-  - $(pyenv root)/versions/3.6.3/python -m pip install flake8
-  - $(pyenv root)/versions/3.6.3/python -m flake8 --version
+  - ls -l $(pyenv root)/versions/3.6.3/
+  - $(pyenv root)/versions/3.6.3/bin/python -m pip install flake8
+  - $(pyenv root)/versions/3.6.3/bin/python -m flake8 --version
   #- python3 --version
   #- python3 -m pip install --upgrade pip
   #- python3 -m pip install flake8
