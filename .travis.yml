@@ -2,7 +2,7 @@ language: cpp
 script:
   #- python3 --version
   #- python3 -m pip install flake8 || more
-  - pyenv --list
+  - pyenv install --list
   - pyenv install --force 3.6.3 
   - which -a python3 || true
   - which -a python3.6 || true
