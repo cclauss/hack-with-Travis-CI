@@ -1,8 +1,7 @@
-language: cpp            # this works for Linux but is an error on macOS or Windows
+language: cpp
 script:
-  - python --version || true
-  - python2 --version || true
-  - python3 --version || true
-  - which -a python || true
-  - which -a python2 || true
-  - which -a python3 || true
+  - pyenv install --force 3.6.3
+  - pyenv global 3.6.3
+  - python3 -m pip install --upgrade pip
+  - python3 -m pip install flake8
+  - flake8 --version
