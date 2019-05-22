@@ -1,10 +1,15 @@
 language: cpp
 script:
-  - python3 --version
-  - python3 -m pip install flake8 || more
-  - pyenv install --force 3.6.3
-  - pyenv global 3.6.3
-  - python3 --version
-  - python3 -m pip install --upgrade pip
-  - python3 -m pip install flake8
-  - python3 -m flake8 --version
+  #- python3 --version
+  #- python3 -m pip install flake8 || more
+  - pyenv --list
+  - pyenv install --force 3.6.3 
+  - which -a python3 || true
+  - which -a python3.6 || true
+  #- pyenv global 3.6.3
+  - $(pyenv root)/versions/3.6.3/python -m pip install flake8
+  - $(pyenv root)/versions/3.6.3/python -m flake8 --version
+  #- python3 --version
+  #- python3 -m pip install --upgrade pip
+  #- python3 -m pip install flake8
+  #- python3 -m flake8 --version
