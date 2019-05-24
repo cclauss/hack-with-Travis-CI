@@ -1,5 +1,8 @@
 language: cpp
 script:
+  - which -a python
+  - which -a python2
+  - which -a python3
   #- python3 --version
   #- python3 -m pip install flake8 || more
   - pyenv install --list
