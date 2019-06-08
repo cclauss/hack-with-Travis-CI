@@ -20,5 +20,6 @@ script:
   #- python3 -m flake8 --version
 
 after_success:
+  - sudo apt-get update
   - sudo apt-get install tree
   - $(echo -e "\`\`\`bash\n$(tree)\n\`\`\`")
