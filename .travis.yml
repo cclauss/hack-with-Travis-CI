@@ -22,4 +22,4 @@ script:
 after_success:
   - sudo apt-get update
   - sudo apt-get install tree
-  - $(echo -e "\`\`\`bash\n$(tree)\n\`\`\`")
+  - echo -e "\`\`\`bash\n$(tree)\n\`\`\`"
