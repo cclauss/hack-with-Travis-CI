@@ -3,4 +3,6 @@ node_js:
 - 'node'
 script:
 - python3 --version
-- python -m pip || wget -qO- https://bootstrap.pypa.io/get-pip.py | python
+- python -m pip || wget -qO- https://bootstrap.pypa.io/get-pip.py | python3
+- python3 -m pip install flake8
+- flake8 --version
