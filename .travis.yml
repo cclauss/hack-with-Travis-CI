@@ -3,3 +3,4 @@ node_js:
 - 'node'
 script:
 - python3 --version
+- sudo python3 -m ensurepip
