@@ -1,4 +1,4 @@
-;anguage: python
+anguage: python
 python:
   - "2.7"
   - "3.4"
