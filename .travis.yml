@@ -2,10 +2,12 @@ language: cpp
 env:
   global:
     - PYTHON2_VERSION="2.7.15"
-    - PYTHON3_VERSION="3.6.7"  # "3.7.1" after #29326 us fixed
+    - PYTHON3_VERSION="3.6.7"  # "3.7.1" after #29326 is fixed
+    - PYTHON2_CACHE=$HOME/.ccache/py${PYTHON2_VERSION}
+    - PYTHON3_CACHE=$HOME/.ccache/py${PYTHON3_VERSION}
 cache:
   ccache: true
   directories:
-    - $HOME/.ccache/py${PYTHON2_VERSION}
-    - $HOME/.ccache/py${PYTHON3_VERSION}
+    - ${PYTHON2_CACHE}
+    - ${PYTHON3_CACHE}
 script: true
