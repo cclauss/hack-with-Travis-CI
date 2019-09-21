@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - 'node'
 script:
+- ls -la
 - python3 --version
 - python3 -m pip || wget -qO- https://bootstrap.pypa.io/get-pip.py | sudo -H python3
 - python3 -m pip install --user flake8
