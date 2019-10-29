@@ -9,6 +9,7 @@ arch:        # Removed from below: uname_result(system='Linux', node='XYZ')
   - s390x    # uname_result(release='5.0.0-23-generic', version='#24~18.04.1-Ubuntu SMP', machine='s390x',   processor='s390x')
   - x86_64   # Same as `arch: amd64`
 script:
+  - uname -a
   - python -c "import platform ; print(platform.uname())"
   - ls -la
   - python3 --version
