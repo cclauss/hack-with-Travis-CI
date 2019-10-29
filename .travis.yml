@@ -10,7 +10,7 @@ arch:        # Removed from below: uname_result(system='Linux', node='XYZ')
   - x86_64   # Same as `arch: amd64`
 script:
   - uname -a
-  - python -c "import platform ; print(platform.uname())"
+  - python3 -c "import platform ; print(platform.uname())"
   - ls -la
   - python3 --version
   - python3 -m pip || wget -qO- https://bootstrap.pypa.io/get-pip.py | sudo -H python3
