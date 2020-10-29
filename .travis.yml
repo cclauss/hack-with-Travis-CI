@@ -1,4 +1,4 @@
 language: python
 python: 3.9
-install: pip install opencv-python
+install: pip install qiskit-aer
 script: true
